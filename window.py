@@ -1,5 +1,6 @@
 import pygame
 from pygame.locals import *
+from object import Object
 
 class Window:
   def __init__(self, x, y, title):
@@ -12,8 +13,7 @@ class Window:
     self.running = True
 
     self.clock = pygame.time.Clock()
-    self.dt = self.clock.tick(60)
     pygame.display.set_caption(title)
 
-  def drawAt(self, color, x, y):
-    pygame.draw.rect(self.screen,color,(x,self.winY-y-10,10,10))
+  def drawAt(self, color, x, y, object):
+    pygame.draw.rect(self.screen,color,(x,self.winY-y-object.sizeY, object.sizeX, object.sizeY))
