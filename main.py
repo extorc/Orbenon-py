@@ -13,8 +13,7 @@ while WIN.running:
     if event.type == pygame.QUIT:
       WIN.running = False
 
-  object.posY+=object.velocity_y
-  object.posX+=object.velocity_x
+  object.update()
 
   WIN.screen.fill((200,200,200))
   WIN.drawAt((0,0,0),object)
