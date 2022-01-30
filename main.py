@@ -4,9 +4,9 @@ from window import Window
 from object import Object
 
 WIN = Window(800, 600, "Orbenon")
-object = Object(10,10,0,0)
-object.set_velocity_x(10)
-object.set_velocity_y(10)
+object = Object(10,10,0,300)
+# object.set_velocity_x(0)
+# object.set_velocity_y(-2)
 
 while WIN.running:
   for event in pygame.event.get():
@@ -20,4 +20,5 @@ while WIN.running:
   
   pygame.display.update()
   dt = WIN.clock.tick(30)
+  object.set_acceleration_y(-9.8 * (dt/1000))
   print(dt)
