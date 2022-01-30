@@ -1,4 +1,4 @@
-import pygame
+import math
 
 class Object:
   def __init__(self, sizeX, sizeY, posX, posY, mass):
@@ -31,3 +31,7 @@ class Object:
     self.velocity_x+=self.acceleration_x
     self.posY+=self.velocity_y
     self.posX+=self.velocity_x
+
+  @staticmethod
+  def get_distance(object, object2):
+    return math.sqrt((object2.posX-object.posX)**2 + (object2.posY-object.posY)**2)
