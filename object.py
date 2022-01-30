@@ -1,7 +1,7 @@
 import pygame
 
 class Object:
-  def __init__(self, sizeX, sizeY, posX, posY):
+  def __init__(self, sizeX, sizeY, posX, posY, mass):
     self.sizeX = sizeX
     self.sizeY = sizeY
     self.posX = posX
@@ -10,7 +10,8 @@ class Object:
     self.velocity_y = 0
     self.acceleration_x = 0
     self.acceleration_y = 0
-
+    self.mass = mass
+    
   def set_velocity_y(self, y):
     self.velocity_y = y
   def set_velocity_x(self, x):
