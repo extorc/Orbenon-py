@@ -2,7 +2,7 @@ import pygame
 from pygame.locals import *
 from window import Window
 
-WIN = Window()
+WIN = Window(800, 600, "Orbenon")
   
 while WIN.running:
   for event in pygame.event.get():
