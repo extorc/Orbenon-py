@@ -15,5 +15,5 @@ class Window:
     self.clock = pygame.time.Clock()
     pygame.display.set_caption(title)
 
-  def drawAt(self, color, x, y, object):
-    pygame.draw.rect(self.screen,color,(x,self.winY-y-object.sizeY, object.sizeX, object.sizeY))
+  def drawAt(self, color, object):
+    pygame.draw.rect(self.screen,color,(object.posX,self.winY-object.posY-object.sizeY, object.sizeX, object.sizeY))
