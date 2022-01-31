@@ -16,7 +16,7 @@ class Window:
     pygame.display.set_caption(title)
 
   def drawAt(self, color, object):
-    pygame.draw.rect(self.screen,color,(object.posX,self.winY-object.posY-object.sizeY, object.sizeX, object.sizeY))
+    pygame.draw.rect(self.screen,color,(object.pos.x,self.winY-object.pos.y-object.sizeY, object.sizeX, object.sizeY))
   def update(self, pointList, object, object2):
     self.screen.fill((200,200,200))
     pygame.draw.lines(self.screen, (255,0,0), False, pointList)
