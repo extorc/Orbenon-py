@@ -22,6 +22,8 @@ class Object:
     self.acceleration.x = x
   def set_acceleration(self, x, y):
     self.acceleration = Vec2(x, y)
+  def set_acceleration(self, vec):
+    self.acceleration = vec
   def update(self):
     self.velocity.y+=self.acceleration.y
     self.velocity.x+=self.acceleration.x

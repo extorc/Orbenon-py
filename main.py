@@ -46,8 +46,7 @@ while WIN.running:
     f = PhysicsEngine.get_newtonian_force(object, object2)
     dir = Object.get_xy_dist(object, object2)
     dir_angle = math.atan2(dir.x,dir.y)
-    object2.set_acceleration_x(PhysicsEngine.force_mass_to_ac(dt, f*math.sin(dir_angle),object2.mass))
-    object2.set_acceleration_y(PhysicsEngine.force_mass_to_ac(dt, f*math.cos(dir_angle),object2.mass))
+    object2.set_acceleration(PhysicsEngine.force_mass_to_ac(dt, f, dir_angle,object2.mass))
 
     pointList.append((object2.pos.x,WIN.winY - object2.pos.y-object2.sizeY))
 
