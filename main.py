@@ -12,11 +12,12 @@ WIN = Window(800, 600, "Orbenon")
 background = pygame.Surface((800, 600))
 background.fill(pygame.Color('#000000'))
 
-object = Object(10,10,600,400, 30000000000000)
-object2 = Object(10,10,125,0, 1)
+object = Object(10,10,500,400, 30000000000000)
+object2 = Object(10,10,170,0, 1)
 
 object2.set_velocity_y(1)
 object2.set_velocity_x(1)
+object.set_velocity_x(0.22)
 pointList = [(object2.pos.x,WIN.winY-object2.pos.y-10),(object2.pos.x,WIN.winY-object2.pos.y-10)]
 
 manager = pygame_gui.UIManager((800, 600))
