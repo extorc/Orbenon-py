@@ -12,12 +12,12 @@ WIN = Window(800, 600, "Orbenon")
 background = pygame.Surface((800, 600))
 background.fill(pygame.Color('#000000'))
 
-object = Object(10,10,400,200, 10000000000000)
-object2 = Object(10,10,500,100, 1)
+object = Object(10,10,600,400, 30000000000000)
+object2 = Object(10,10,125,0, 1)
 
-object2.set_velocity_y(0.2)
-object2.set_velocity_x(0.2)
-pointList = [(500,600-100-10),(500,600-100-10)]
+object2.set_velocity_y(1)
+object2.set_velocity_x(1)
+pointList = [(object2.pos.x,WIN.winY-object2.pos.y-10),(object2.pos.x,WIN.winY-object2.pos.y-10)]
 
 manager = pygame_gui.UIManager((800, 600))
 start_button = UIManager.add_button(5, 5, 70, 45, 'Start', manager)
@@ -52,5 +52,6 @@ while WIN.running:
 
     object.update()
     object2.update()
+    vel = pygame_gui.elements.UITextBox("{}".format(math.sqrt(object2.velocity.x**2 + object2.velocity.y**2)), pygame.Rect(165, 5, 70, 45),manager ,visible=1)
 
   WIN.update(background, manager, pointList, object, object2)
