@@ -2,6 +2,7 @@ import pygame
 from pygame.locals import *
 from window import Window
 from object import Object
+from vec2 import Vec2
 import math
 
 WIN = Window(800, 600, "Orbenon")
@@ -16,10 +17,13 @@ while WIN.running:
 
   dt_factor = WIN.clock.tick(30)
   dt = dt_factor/1000
-  fdir = (object.posX-object2.posX,object.posY-object2.posY)
   f = G * (object.mass * object2.mass)/Object.get_distance(object, object2)**2
-  object2.acceleration_x = dt * f * math.sin(math.atan((object.posY-object2.posY)/(object.posX-object2.posX)))/object2.mass
-  object2.acceleration_y = dt * f * math.cos(math.atan((object.posY-object2.posY)/(object.posX-object2.posX)))/object2.mass
+  dir = Vec2(object.posX-object2.posX,object.posY-object2.posY)
+  dir_angle = math.atan2(dir.x,dir.y)
+  print("slope" + str(dir_angle) + "Pos : " + str(object2.posX) + " " + str(object2.posY))
+  dir.print()
+  object2.acceleration_x = dt * f * math.sin(dir_angle)/object2.mass
+  object2.acceleration_y = dt * f * math.cos(dir_angle)/object2.mass
   
   object.update()
   object2.update()
@@ -27,6 +31,4 @@ while WIN.running:
   WIN.screen.fill((200,200,200))
   WIN.drawAt((0,0,0),object)
   WIN.drawAt((0,0,0),object2)
-  print(object2.velocity_x)
-  print(object2.velocity_y)
   pygame.display.update()
