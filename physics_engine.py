@@ -1,3 +1,4 @@
+import math
 from object import Object
 
 class PhysicsEngine:
@@ -5,3 +6,6 @@ class PhysicsEngine:
   @staticmethod
   def get_newtonian_force(object, object2):
     return PhysicsEngine.G * (object.mass * object2.mass)/Object.get_distance(object, object2)**2
+  @staticmethod
+  def force_mass_to_ac(dt, f, m):
+    return dt * f/m

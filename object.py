@@ -31,3 +31,6 @@ class Object:
   @staticmethod
   def get_distance(object, object2):
     return math.sqrt((object2.pos.x-object.pos.x)**2 + (object2.pos.y-object.pos.y)**2)
+  @staticmethod
+  def get_xy_dist(object, object2):
+    return Vec2(object.pos.x-object2.pos.x,object.pos.y-object2.pos.y)

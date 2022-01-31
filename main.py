@@ -21,7 +21,7 @@ pointList = [(500,600-100-10),(500,600-100-10)]
 
 manager = pygame_gui.UIManager((800, 600))
 start_button = UIManager.add_button(5, 5, 70, 45, 'Start', manager)
-pause_button = UIManager.add_button(80,5, 80, 45, 'Start', manager)
+pause_button = UIManager.add_button(80,5, 80, 45, 'Pause', manager)
 
 physics_running = False
 
@@ -44,12 +44,12 @@ while WIN.running:
 
   if physics_running:
     f = PhysicsEngine.get_newtonian_force(object, object2)
-    dir = Vec2(object.pos.x-object2.pos.x,object.pos.y-object2.pos.y)
+    dir = Object.get_xy_dist(object, object2)
     dir_angle = math.atan2(dir.x,dir.y)
-    object2.set_acceleration_x(dt * f * math.sin(dir_angle)/object2.mass)
-    object2.set_acceleration_y(dt * f * math.cos(dir_angle)/object2.mass)
+    object2.set_acceleration_x(PhysicsEngine.force_mass_to_ac(dt, f*math.sin(dir_angle),object2.mass))
+    object2.set_acceleration_y(PhysicsEngine.force_mass_to_ac(dt, f*math.cos(dir_angle),object2.mass))
 
-    pointList.append((object2.pos.x,600 - object2.pos.y-10))
+    pointList.append((object2.pos.x,WIN.winY - object2.pos.y-object2.sizeY))
 
     object.update()
     object2.update()
