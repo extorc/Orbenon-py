@@ -5,6 +5,7 @@ from window import Window
 from object import Object
 from vec2 import Vec2
 from physics_engine import PhysicsEngine
+from ui_manager import UIManager
 import math
 
 WIN = Window(800, 600, "Orbenon")
@@ -19,8 +20,8 @@ object2.set_velocity_x(0.2)
 pointList = [(500,600-100-10),(500,600-100-10)]
 
 manager = pygame_gui.UIManager((800, 600))
-start_button = pygame_gui.elements.UIButton(relative_rect=pygame.Rect((5,5), (70, 45)),text='Start',manager=manager)
-pause_button = pygame_gui.elements.UIButton(relative_rect=pygame.Rect((80,5), (80, 45)),text='Pause',manager=manager)
+start_button = UIManager.add_button(5, 5, 70, 45, 'Start', manager)
+pause_button = UIManager.add_button(80,5, 80, 45, 'Start', manager)
 
 physics_running = False
 
