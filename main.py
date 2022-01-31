@@ -25,17 +25,9 @@ while WIN.running:
   dir_angle = math.atan2(dir.x,dir.y)
   object2.acceleration_x = dt * f * math.sin(dir_angle)/object2.mass
   object2.acceleration_y = dt * f * math.cos(dir_angle)/object2.mass
-  
-  # print("Force : " + str(f) + " Velocity" + str(object2.velocity_x) + "," + str(object2.velocity_y) + "slope : " + str(dir_angle) + " Pos : " + str(object2.posX) + " " + str(object2.posY))
-  # dir.print()
 
   pointList.append((object2.posX,600 - object2.posY-10))
 
   object.update()
   object2.update()
-
-  WIN.screen.fill((200,200,200))
-  pygame.draw.lines(WIN.screen, (255,0,0), False, pointList)
-  WIN.drawAt((0,0,0),object)
-  WIN.drawAt((0,0,0),object2)
-  pygame.display.update()
+  WIN.update(pointList, object, object2)

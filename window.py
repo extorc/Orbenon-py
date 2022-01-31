@@ -17,3 +17,9 @@ class Window:
 
   def drawAt(self, color, object):
     pygame.draw.rect(self.screen,color,(object.posX,self.winY-object.posY-object.sizeY, object.sizeX, object.sizeY))
+  def update(self, pointList, object, object2):
+    self.screen.fill((200,200,200))
+    pygame.draw.lines(self.screen, (255,0,0), False, pointList)
+    self.drawAt((0,0,0),object)
+    self.drawAt((0,0,0),object2)
+    pygame.display.update()
