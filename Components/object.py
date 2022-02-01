@@ -1,5 +1,5 @@
 import math
-from vec2 import Vec2
+from Components.vec2 import Vec2
 
 class Object:
   def __init__(self, sizeX, sizeY, posX, posY, mass):

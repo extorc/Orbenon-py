@@ -1,6 +1,6 @@
 import math
-from object import Object
-from vec2 import Vec2
+from Components.object import Object
+from Components.vec2 import Vec2
 
 class PhysicsEngine:
   G = 6.6e-11

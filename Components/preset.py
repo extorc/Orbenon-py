@@ -1,11 +1,8 @@
 import pygame
 import pygame_gui
 from pygame.locals import *
-from System.window import Window
-from object import Object
-from vec2 import Vec2
+from Components.object import Object
 from System.physics_engine import PhysicsEngine
-from System.ui_manager import UIManager
 import math
 
 def gravity_assist(dt, object, object2, WIN, pointList):
