@@ -2,7 +2,10 @@
 This is an N-Body Orbit Simulator Program made in Python.<br>
 It uses the Game engine - <a href = "https://www.pygame.org/">Pygame</a> and GUI engine <a href = "https://pygame-gui.readthedocs.io/#:~:text=Pygame%20GUI%20is%20a%20module,Pygame%202%20and%20Python%203.">Pygame GUI</a><br>
 It uses the Newtonian Laws of motion to find orbits of adjustable masses.<br><br>
-![image](https://user-images.githubusercontent.com/66661460/151783783-ed55992d-9254-4018-be3b-147cce4c3cef.png)<br><br>
+![image](https://user-images.githubusercontent.com/66661460/151783783-ed55992d-9254-4018-be3b-147cce4c3cef.png)<br>
+Orbits<br><br>
+![image](https://user-images.githubusercontent.com/66661460/151944884-445b629e-db65-4693-8375-c499f7eb86d6.png)
+<br>Gravity Assist<br><br>
 Currently its only 2 body system with only 1 body subject to <a href = "https://en.wikipedia.org/wiki/Newton%27s_laws_of_motion">N-Body Motion</a>.
 # Aims
 1) Both bodies affected by Gravity.<br>
