@@ -4,7 +4,7 @@ from pygame.locals import *
 from System.window import Window
 from Components.object import Object
 from System.ui_manager import UIManager
-from Components.preset import gravity_assist
+from Components.preset import two_body_one_N
 from Components.vec2 import Vec2
 
 WIN = Window(800, 600, "Orbenon")
@@ -48,4 +48,4 @@ def main(func, vel1, vel2):
       func()
     WIN.update(background, WIN.manager, pointList, object, object2)
 
-main(lambda:gravity_assist(dt, object, object2, WIN, pointList), Vec2(0.22,0), Vec2(1,1))
+main(lambda:two_body_one_N(dt, object, object2, WIN, pointList), Vec2(0.22,0), Vec2(1,1))

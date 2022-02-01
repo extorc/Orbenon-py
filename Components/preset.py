@@ -5,7 +5,7 @@ from Components.object import Object
 from System.physics_engine import PhysicsEngine
 import math
 
-def gravity_assist(dt, object, object2, WIN, pointList):
+def two_body_one_N(dt, object, object2, WIN, pointList):
   f = PhysicsEngine.get_newtonian_force(object, object2)
   dir = Object.get_xy_dist(object, object2)
   dir_angle = math.atan2(dir.x,dir.y)
