@@ -1,6 +1,6 @@
 import pygame
 from pygame.locals import *
-from object import Object
+import pygame_gui
 
 class Window:
   def __init__(self, x, y, title):
@@ -14,6 +14,7 @@ class Window:
 
     self.clock = pygame.time.Clock()
     pygame.display.set_caption(title)
+    self.manager = pygame_gui.UIManager((800, 600))
 
   def drawAt(self, color, object):
     pygame.draw.rect(self.screen,color,(object.pos.x,self.winY-object.pos.y-object.sizeY, object.sizeX, object.sizeY))

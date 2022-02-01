@@ -3,10 +3,8 @@ import pygame_gui
 from pygame.locals import *
 from window import Window
 from object import Object
-from vec2 import Vec2
-from physics_engine import PhysicsEngine
 from ui_manager import UIManager
-import math
+from preset import gravity_assist
 
 WIN = Window(800, 600, "Orbenon")
 background = pygame.Surface((800, 600))
@@ -20,9 +18,8 @@ object2.set_velocity_x(1)
 object.set_velocity_x(0.22)
 pointList = [(object2.pos.x,WIN.winY-object2.pos.y-10),(object2.pos.x,WIN.winY-object2.pos.y-10)]
 
-manager = pygame_gui.UIManager((800, 600))
-start_button = UIManager.add_button(5, 5, 70, 45, 'Start', manager)
-pause_button = UIManager.add_button(80,5, 80, 45, 'Pause', manager)
+start_button = UIManager.add_button(5, 5, 70, 45, 'Start', WIN.manager)
+pause_button = UIManager.add_button(80,5, 80, 45, 'Pause', WIN.manager)
 
 physics_running = False
 
@@ -37,22 +34,12 @@ while WIN.running:
       elif event.ui_element == pause_button:
         print('Paused Physics Simulation')
         physics_running = False
-    manager.process_events(event)
+    WIN.manager.process_events(event)
 
   dt_factor = WIN.clock.tick(30)
   dt = dt_factor/1000
-  manager.update(dt)
+  WIN.manager.update(dt)
 
   if physics_running:
-    f = PhysicsEngine.get_newtonian_force(object, object2)
-    dir = Object.get_xy_dist(object, object2)
-    dir_angle = math.atan2(dir.x,dir.y)
-    object2.set_acceleration(PhysicsEngine.force_mass_to_ac(dt, f, dir_angle,object2.mass))
-
-    pointList.append((object2.pos.x,WIN.winY - object2.pos.y-object2.sizeY))
-
-    object.update()
-    object2.update()
-    vel = pygame_gui.elements.UITextBox("{}".format(math.sqrt(object2.velocity.x**2 + object2.velocity.y**2)), pygame.Rect(165, 5, 70, 45),manager ,visible=1)
-
-  WIN.update(background, manager, pointList, object, object2)
+    gravity_assist(dt, object, object2, WIN, pointList)
+  WIN.update(background, WIN.manager, pointList, object, object2)
