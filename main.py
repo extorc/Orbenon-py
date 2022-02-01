@@ -1,10 +1,10 @@
 import pygame
 import pygame_gui
 from pygame.locals import *
-from window import Window
-from object import Object
-from ui_manager import UIManager
-from preset import gravity_assist
+from System.window import Window
+from Components.object import Object
+from System.ui_manager import UIManager
+from Components.preset import gravity_assist
 
 WIN = Window(800, 600, "Orbenon")
 background = pygame.Surface((800, 600))
