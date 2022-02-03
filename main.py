@@ -11,8 +11,8 @@ WIN = Window(800, 600, "Orbenon")
 background = pygame.Surface((800, 600))
 background.fill(pygame.Color('#000000'))
 
-object = Object(10,10,500,400, 30000000000000)
-object2 = Object(10,10,170,0, 1)
+object = Object(10,10,325,225, 30000000000000)
+object2 = Object(10,10,370,100, 1)
 dt_factor = WIN.clock.tick(30)
 dt = dt_factor/1000
 
@@ -48,4 +48,5 @@ def main(func, vel1, vel2):
       func()
     WIN.update(background, WIN.manager, pointList, object, object2)
 
-main(lambda:two_body_one_N(dt, object, object2, WIN, pointList), Vec2(0.22,0), Vec2(1,1))
+# main(lambda:two_body_one_N(dt, object, object2, WIN, pointList), Vec2(0.22,0), Vec2(1,1))    #gravity assist
+main(lambda:two_body_one_N(dt, object, object2, WIN, pointList), Vec2(0 ,0), Vec2(0.3, 0.3))   #obit
